@@ -1,3 +1,6 @@
+# Customize server port
+server:
+  port: 7012
 
 # import secrets.properties
 spring:
