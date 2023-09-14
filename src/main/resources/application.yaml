@@ -9,10 +9,10 @@ spring:
 
   # MySQL Connection Settings
   datasource:
-    url: ${db.url}
-    username: ${db.username}
-    password: ${db.password}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${MYSQL_URL}
+    username: ${MYSQLUSER}
+    password: ${MYSQLPASSWORD}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
 
   # JPA Settings
   jpa:
