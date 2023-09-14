@@ -43,7 +43,7 @@ public class PersonController {
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("/phone_number/{phone_number}")
+    @GetMapping("/phone/{phone_number}")
     public ResponseEntity<ApiResponse> getPersonByPhoneNumber(@PathVariable String phone_number) {
         ApiResponse apiResponse = personService.getPersonByPhoneNumber(phone_number);
         return ResponseEntity.ok(apiResponse);
