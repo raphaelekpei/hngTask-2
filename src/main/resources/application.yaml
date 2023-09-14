@@ -1,0 +1,25 @@
+# Customize server port
+server:
+  port: 7012
+
+# import secrets.properties
+spring:
+  config:
+    import: secrets.properties
+
+  # MySQL Connection Settings
+  datasource:
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA Settings
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        format_sql: true
