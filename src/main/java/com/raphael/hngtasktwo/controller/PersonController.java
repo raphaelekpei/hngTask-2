@@ -31,19 +31,19 @@ public class PersonController {
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("{email}")
+    @GetMapping("/email/{email}")
     public ResponseEntity<ApiResponse> getPersonByEmail(@PathVariable String email) {
         ApiResponse apiResponse = personService.getPersonByEmail(email);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<List<ApiResponse>> getPersonsByName(@PathVariable String name){
         List<ApiResponse> apiResponse = personService.getPersonsByName(name);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("{phone_number}")
+    @GetMapping("/phone/{phone_number}")
     public ResponseEntity<ApiResponse> getPersonByPhoneNumber(@PathVariable String phone_number) {
         ApiResponse apiResponse = personService.getPersonByPhoneNumber(phone_number);
         return ResponseEntity.ok(apiResponse);
