@@ -13,13 +13,13 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/api")
+//@RequestMapping(value = "/api")
 @RequiredArgsConstructor
 public class PersonController {
 
     private final PersonService personService;
 
-    @PostMapping()
+    @PostMapping("/api")
     public ResponseEntity<ApiResponse> addPerson(@Valid @RequestBody CreatePersonRequest createPersonRequest){
         ApiResponse apiResponse = personService.addPerson(createPersonRequest);
         return ResponseEntity.ok(apiResponse);
