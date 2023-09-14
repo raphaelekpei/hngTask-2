@@ -11,50 +11,51 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
-@RequestMapping(value = "api/person")
+@RequestMapping(value = "/api")
 @RequiredArgsConstructor
 public class PersonController {
 
     private final PersonService personService;
 
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity<ApiResponse> addPerson(@Valid @RequestBody CreatePersonRequest createPersonRequest){
         ApiResponse apiResponse = personService.addPerson(createPersonRequest);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("/by-id/{id}")
+    @GetMapping("/user_id/{id}")
     public ResponseEntity<ApiResponse> getPersonById(@PathVariable Long id) {
         ApiResponse apiResponse = personService.getPersonById(id);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("/email/{email}")
+    @GetMapping("/user_email/{email}")
     public ResponseEntity<ApiResponse> getPersonByEmail(@PathVariable String email) {
         ApiResponse apiResponse = personService.getPersonByEmail(email);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("by-name/{name}")
+    @GetMapping("user_name/{name}")
     public ResponseEntity<List<ApiResponse>> getPersonsByName(@PathVariable String name){
         List<ApiResponse> apiResponse = personService.getPersonsByName(name);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("/phone/{phone_number}")
+    @GetMapping("/user_phone/{phone_number}")
     public ResponseEntity<ApiResponse> getPersonByPhoneNumber(@PathVariable String phone_number) {
         ApiResponse apiResponse = personService.getPersonByPhoneNumber(phone_number);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/user_id/{id}")
     public ResponseEntity<ApiResponse> updatePerson(@Valid @RequestBody UpdatePersonRequest updatePersonRequest, @PathVariable Long id){
         ApiResponse apiResponse = personService.updatePerson(updatePersonRequest, id);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @DeleteMapping("/by-id/{id}")
+    @DeleteMapping("/user_id/{id}")
     public ResponseEntity<String> deletePersonById(@PathVariable Long id) {
         String deleteMessage = personService.deletePersonById(id);
         return ResponseEntity.ok(deleteMessage);
