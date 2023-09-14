@@ -28,9 +28,6 @@ public class Person {
     private LocalDate dateOfBirth;
     private Integer age;
 
-//    public Integer getAge() {
-//        return Period.between(dateOfBirth, LocalDate.now()).getYears();
-//    }
 
     public Person(String name, String email, String phoneNumber, Address address, LocalDate dateOfBirth) {
         this.name = name;

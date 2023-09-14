@@ -272,6 +272,57 @@ Content-Type: application/json
 
 }
 
+
+### Updating a Person by ID
+
+# Request:
+UPDATE /api/1
+Content-Type: application/json
+
+{
+  "name": "Johnny Doe",
+  "email": "johnnydoe@example.com",
+  "phoneNumber": "+234 90-9383-7491",
+  "address": {
+    "houseNumber": 37,
+    "streetName": "Ajasa Street",
+    "city": "Olodi-Apapa",
+    "state": "Lagos",
+    "country": "Nigeria"
+  },
+  "dateOfBirth": "1993-12-12"
+}
+
+# Response:
+
+{
+  "name": "Johnny Doe",
+  "email": "johnnydoe@example.com",
+  "phoneNumber": "+234 90-9383-7491",
+  "address": {
+    "houseNumber": 37,
+    "streetName": "Ajasa Street",
+    "city": "Olodi-Apapa",
+    "state": "Lagos",
+    "country": "Nigeria"
+  },
+  "dateOfBirth": "1993-12-12",
+  "age": 29
+}
+
+### Deleting a Person by ID
+
+# Request:
+DELETE /api/1
+Content-Type: application/json
+
+# Response:
+
+{
+  success
+
+}
+
 #### Known Limitations and Assumptions
 - This API assumes that person records are unique based on their email addresses. 
 - Age calculation is based on the provided date of birth and the current date, and it may not be 100% accurate for leap years.
