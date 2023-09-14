@@ -54,13 +54,13 @@ API Endpoints
 
 The REST API exposes the following endpoints:
 
-POST /api/person/add: Create a new person record.
-GET /api/person/by-id/{id}: Retrieve a person by their ID.
-GET /api/person/email/{email}: Retrieve a person by their email address.
-GET /api/person/by-name/{name}: Retrieve a list of persons by their name.
-GET /api/person/phone/{phone_number}: Retrieve a person by their phone number.
-PUT /api/person/update/{id}: Update an existing person record.
-DELETE /api/person/by-id/{id}: Delete a person by their ID.
+POST /api: Create a new person record.
+GET /api/{id}: Retrieve a person by their ID.
+GET /api/email/{email}: Retrieve a person by their email address.
+GET /api/name/{name}: Retrieve a list of persons by their name.
+GET /api/phone_number/{phone_number}: Retrieve a person by their phone number.
+PUT /api/{id}: Update an existing person record.
+DELETE /api/{id}: Delete a person by their ID.
 
 Each endpoint serves a specific purpose in managing person data within the system.
 

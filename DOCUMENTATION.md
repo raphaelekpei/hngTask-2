@@ -11,9 +11,10 @@ This documentation provides details about the API endpoints, standard request an
 3. Known Limitations and Assumptions
 4. Local Setup and Deployment Instructions
  
-#### Endpoints and Request/Response Formats
+### Endpoints and Request/Response Formats
 
-### POST /api/person/add
+# Add Person:
+## POST /api
 
 # Request Format:
 
@@ -48,8 +49,8 @@ This documentation provides details about the API endpoints, standard request an
   "age": 29
 }
 
-
-### GET /api/person/by-id/{id}
+# Get Person by ID:
+## GET /api/{id}
 
 # Request Format:
 
@@ -75,7 +76,8 @@ This documentation provides details about the API endpoints, standard request an
 }
 
 
-### GET /api/person/email/{email}
+# Get Person by Email:
+## GET /api/email/{email}
 
 # Request Format:
 {
@@ -99,8 +101,8 @@ This documentation provides details about the API endpoints, standard request an
   "age": 29
 }
 
-
-### GET /api/person/by-name/{name}
+# Get Persons by Name:
+## GET /api/name/{name}
 
 # Request Format:
 {
@@ -125,7 +127,8 @@ This documentation provides details about the API endpoints, standard request an
 }
 
 
-### GET /api/person/phone/{phone_number}
+# Get Person by Phone Number:
+## GET /api/phone_number/{phone_number}
 
 # Request Format:
 
@@ -151,7 +154,8 @@ This documentation provides details about the API endpoints, standard request an
 }
 
 
-### PUT /api/person/update/{id}
+# Update Person by ID:
+## PUT /api/{id}
 
 # Request Format:
 
@@ -189,7 +193,8 @@ This documentation provides details about the API endpoints, standard request an
 }
 
 
-### DELETE /api/person/by-id/{id}
+# Delete Person by ID:
+## DELETE /api/{id}
 
 # Request Format:
 
@@ -200,7 +205,7 @@ This documentation provides details about the API endpoints, standard request an
 # Response Format:
 
 {
-"message": "Person deleted successfully"
+"message": "success"
 }
 
 #### Sample API Usage
@@ -209,7 +214,7 @@ This documentation provides details about the API endpoints, standard request an
 
 # Request:
 
-POST /api/person/add
+POST /api
 Content-Type: application/json
 
 {
@@ -246,7 +251,7 @@ Content-Type: application/json
 ### Retrieving a Person by ID
 
 # Request:
-GET /api/person/by-id/1
+GET /api/1
 Content-Type: application/json
 
 # Response:
