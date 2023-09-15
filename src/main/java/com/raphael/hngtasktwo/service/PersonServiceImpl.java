@@ -49,13 +49,7 @@ public class PersonServiceImpl implements PersonService{
             throw new PersonNotFoundException("Person with id " + id + "not found");
         }
         Person person = optionalPerson.get();
-        return ApiResponse
-                .builder()
-                .id(person.getId())
-                .message("User with id " + person.getId() + " successfully gotten")
-                .isSuccess(true)
-                .build();
-
+        return modelMapper.map(person, ApiResponse.class);
     }
 
     @Override
@@ -73,7 +67,6 @@ public class PersonServiceImpl implements PersonService{
 
         return ApiResponse
                 .builder()
-                .id(person.getId())
                 .message("User with id " + person.getId() + " successfully created")
                 .isSuccess(true)
                 .build();
