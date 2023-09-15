@@ -11,7 +11,6 @@ Project Structure
 API Endpoints
 Getting Started
 Contributing
-License
 
 Description
 
