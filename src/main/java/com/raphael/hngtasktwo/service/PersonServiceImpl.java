@@ -66,6 +66,7 @@ public class PersonServiceImpl implements PersonService{
 
         return ApiResponse
                 .builder()
+                .id(person.getId())
                 .message("User with id " + person.getId() + " has been successfully updated")
                 .isSuccess(true)
                 .build();
