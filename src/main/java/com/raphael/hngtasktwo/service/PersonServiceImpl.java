@@ -6,7 +6,6 @@ import com.raphael.hngtasktwo.data.repository.PersonRepository;
 import com.raphael.hngtasktwo.dto.request.CreatePersonRequest;
 import com.raphael.hngtasktwo.dto.request.UpdatePersonRequest;
 import com.raphael.hngtasktwo.dto.response.ApiResponse;
-import com.raphael.hngtasktwo.exception.EmailTakenException;
 import com.raphael.hngtasktwo.exception.PersonNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
