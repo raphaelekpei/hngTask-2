@@ -73,18 +73,14 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public ApiResponse deletePersonById(Long id) {
+    public String deletePersonById(Long id) {
         Optional<Person> optionalPerson = personRepository.findById(id);
         if (optionalPerson.isEmpty()){
             throw new PersonNotFoundException("Person with id " + id + " not found");
         }
         Person person = optionalPerson.get();
         personRepository.delete(person);
-        return ApiResponse
-                .builder()
-                .message("User with id " + person.getId() + " successfully deleted")
-                .isSuccess(true)
-                .build();
+        return "User with id " + person.getId() + " successfully deleted";
 
     }
 
