@@ -53,7 +53,4 @@ public class CreatePersonRequest {
     @NotEmpty(message = "This field is required")
     private String country;
 
-    @NotNull(message = "This field is required")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate dateOfBirth;
 }
