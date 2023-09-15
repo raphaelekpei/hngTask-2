@@ -29,12 +29,6 @@ public class PersonServiceImpl implements PersonService{
     @Override
     public ApiResponse addPerson(CreatePersonRequest createPersonRequest) {
 
-        Optional<Person> optionalPerson = personRepository.findByEmail(createPersonRequest.getEmail());
-        if (optionalPerson.isPresent()) {
-            throw new EmailTakenException("Person with email " + createPersonRequest.getEmail() + " already exist");
-        }
-
-
         Person newPerson = modelMapper.map(createPersonRequest, Person.class);
         Address address = modelMapper.map(createPersonRequest, Address.class);
         newPerson.setAddress(address);
