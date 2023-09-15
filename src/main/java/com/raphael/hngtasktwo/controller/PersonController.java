@@ -1,5 +1,6 @@
 package com.raphael.hngtasktwo.controller;
 
+import com.raphael.hngtasktwo.data.model.Person;
 import com.raphael.hngtasktwo.dto.request.CreatePersonRequest;
 import com.raphael.hngtasktwo.dto.request.UpdatePersonRequest;
 import com.raphael.hngtasktwo.dto.response.ApiResponse;
@@ -25,9 +26,9 @@ public class PersonController {
     }
 
     @GetMapping("{user_id}")
-    public ResponseEntity<ApiResponse> getPersonById(@PathVariable Long user_id) {
-        ApiResponse apiResponse = personService.getPersonById(user_id);
-        return ResponseEntity.ok(apiResponse);
+    public ResponseEntity<Person> getPersonById(@PathVariable Long user_id) {
+        Person person = personService.getPersonById(user_id);
+        return ResponseEntity.ok(person);
     }
 
     @PutMapping("{user_id}")

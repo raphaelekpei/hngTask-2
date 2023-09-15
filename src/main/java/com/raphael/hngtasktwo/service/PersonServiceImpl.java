@@ -43,13 +43,12 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public ApiResponse getPersonById(Long id) {
+    public Person getPersonById(Long id) {
         Optional<Person> optionalPerson = personRepository.findById(id);
         if (optionalPerson.isEmpty()) {
             throw new PersonNotFoundException("Person with id " + id + "not found");
         }
-        Person person = optionalPerson.get();
-        return modelMapper.map(person, ApiResponse.class);
+        return optionalPerson.get();
     }
 
     @Override
@@ -67,7 +66,7 @@ public class PersonServiceImpl implements PersonService{
 
         return ApiResponse
                 .builder()
-                .message("User with id " + person.getId() + " successfully created")
+                .message("User with id " + person.getId() + " has been successfully updated")
                 .isSuccess(true)
                 .build();
     }
@@ -80,7 +79,7 @@ public class PersonServiceImpl implements PersonService{
         }
         Person person = optionalPerson.get();
         personRepository.delete(person);
-        return "User with id " + person.getId() + " successfully deleted";
+        return "User with id " + person.getId() + " has been successfully deleted";
 
     }
 
