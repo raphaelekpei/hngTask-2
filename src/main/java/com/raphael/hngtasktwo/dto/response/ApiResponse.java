@@ -16,7 +16,5 @@ public class ApiResponse {
     private String phoneNumber;
 
     private Address address;
-    private LocalDate dateOfBirth;
-    private Integer age;
 
 }

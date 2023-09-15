@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 
 @RestController
@@ -25,39 +24,21 @@ public class PersonController {
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<ApiResponse> getPersonById(@PathVariable Long id) {
-        ApiResponse apiResponse = personService.getPersonById(id);
+    @GetMapping("{user_id}")
+    public ResponseEntity<ApiResponse> getPersonById(@PathVariable Long user_id) {
+        ApiResponse apiResponse = personService.getPersonById(user_id);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("/email/{email}")
-    public ResponseEntity<ApiResponse> getPersonByEmail(@PathVariable String email) {
-        ApiResponse apiResponse = personService.getPersonByEmail(email);
+    @PutMapping("{user_id}")
+    public ResponseEntity<ApiResponse> updatePerson(@Valid @RequestBody UpdatePersonRequest updatePersonRequest, @PathVariable Long user_id){
+        ApiResponse apiResponse = personService.updatePerson(updatePersonRequest, user_id);
         return ResponseEntity.ok(apiResponse);
     }
 
-    @GetMapping("/name/{name}")
-    public ResponseEntity<List<ApiResponse>> getPersonsByName(@PathVariable String name){
-        List<ApiResponse> apiResponse = personService.getPersonsByName(name);
-        return ResponseEntity.ok(apiResponse);
-    }
-
-    @GetMapping("/phone_number/{phone_number}")
-    public ResponseEntity<ApiResponse> getPersonByPhoneNumber(@PathVariable String phone_number) {
-        ApiResponse apiResponse = personService.getPersonByPhoneNumber(phone_number);
-        return ResponseEntity.ok(apiResponse);
-    }
-
-    @PutMapping("{id}")
-    public ResponseEntity<ApiResponse> updatePerson(@Valid @RequestBody UpdatePersonRequest updatePersonRequest, @PathVariable Long id){
-        ApiResponse apiResponse = personService.updatePerson(updatePersonRequest, id);
-        return ResponseEntity.ok(apiResponse);
-    }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deletePersonById(@PathVariable Long id) {
-        String deleteMessage = personService.deletePersonById(id);
+    @DeleteMapping("{user_id}")
+    public ResponseEntity<String> deletePersonById(@PathVariable Long user_id) {
+        String deleteMessage = personService.deletePersonById(user_id);
         return ResponseEntity.ok(deleteMessage);
     }
 

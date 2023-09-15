@@ -12,13 +12,6 @@ public interface PersonService {
     ApiResponse addPerson(CreatePersonRequest createPersonRequest);
 
     ApiResponse getPersonById(Long id);
-
-    ApiResponse getPersonByEmail(String email);
-
-    List<ApiResponse> getPersonsByName(String name);
-
-    ApiResponse getPersonByPhoneNumber(String phone_number);
-
     ApiResponse updatePerson(UpdatePersonRequest updatePersonRequest, Long id);
 
     String deletePersonById(Long id);

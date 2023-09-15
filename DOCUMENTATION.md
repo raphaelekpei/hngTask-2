@@ -28,8 +28,7 @@ This documentation provides details about the API endpoints, standard request an
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12"
+  }
 }
 
 # Response Format:
@@ -44,9 +43,7 @@ This documentation provides details about the API endpoints, standard request an
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
+  }
 }
 
 # Get Person by ID:
@@ -55,85 +52,7 @@ This documentation provides details about the API endpoints, standard request an
 # Request Format:
 
 {
-  "id": 153
-}
-
-# Response Format:
-
-{
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
-}
-
-
-# Get Person by Email:
-## GET /api/email/{email}
-
-# Request Format:
-{
-  "email": "johndoe@gmail.com"
-}
-
-# Response Format:
-
-{
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+234 90-9383-7491",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
-}
-
-# Get Persons by Name:
-## GET /api/name/{name}
-
-# Request Format:
-{
-  "name": "John Doe"
-}
-
-# Response Format:
-
-{
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
-}
-
-
-# Get Person by Phone Number:
-## GET /api/phone_number/{phone_number}
-
-# Request Format:
-
-{
-  "phone_number": "+2349023437391"
+  "id": 1
 }
 
 # Response Format:
@@ -186,10 +105,7 @@ This documentation provides details about the API endpoints, standard request an
     "city": "Peter Road",
     "state": "Lagos",
     "country": "Nigeria"
-},
-  "dateOfBirth": "1995-12-12",
-  "age": 27
-
+}
 }
 
 
@@ -199,7 +115,7 @@ This documentation provides details about the API endpoints, standard request an
 # Request Format:
 
 {
-  "id": 153
+  "id": 1
 }
 
 # Response Format:
@@ -227,8 +143,7 @@ Content-Type: application/json
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12"
+  }
 }
 
 # Response:
@@ -243,15 +158,13 @@ Content-Type: application/json
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
+  }
 }
 
 ### Retrieving a Person by ID
 
 # Request:
-GET /api/153
+GET /api/1
 Content-Type: application/json
 
 # Response:
@@ -267,16 +180,13 @@ Content-Type: application/json
     "state": "Lagos",
     "country": "Nigeria"
   },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
 
 }
-
 
 ### Updating a Person by ID
 
 # Request:
-UPDATE /api/153
+UPDATE /api/1
 Content-Type: application/json
 
 {
@@ -289,8 +199,7 @@ Content-Type: application/json
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12"
+  }
 }
 
 # Response:
@@ -305,15 +214,13 @@ Content-Type: application/json
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
+  }
 }
 
 ### Deleting a Person by ID
 
 # Request:
-DELETE /api/153
+DELETE /api/1
 Content-Type: application/json
 
 # Response:

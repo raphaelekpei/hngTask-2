@@ -12,10 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
 
 @Service
 public class PersonServiceImpl implements PersonService{
@@ -52,39 +49,6 @@ public class PersonServiceImpl implements PersonService{
         Optional<Person> optionalPerson = personRepository.findById(id);
         if (optionalPerson.isEmpty()) {
             throw new PersonNotFoundException("Person with id " + id + "not found");
-        }
-        return modelMapper.map(optionalPerson.get(), ApiResponse.class);
-    }
-
-    @Override
-    public ApiResponse getPersonByEmail(String email) {
-        Optional<Person> optionalPerson = personRepository.findByEmail(email);
-        if (optionalPerson.isEmpty()) {
-            throw new PersonNotFoundException("Person with email " + email + " not found");
-        }
-        return modelMapper.map(optionalPerson.get(), ApiResponse.class);
-    }
-
-    @Override
-    public List<ApiResponse> getPersonsByName(String name) {
-        List<Optional<Person>> optionalPeople = personRepository.findByName(name);
-        if (optionalPeople.isEmpty()) {
-            throw new PersonNotFoundException("Person with name " + name + "not found");
-        }
-
-        // Map the list of people to a list of ApiResponse objects
-        List<ApiResponse> responseList = optionalPeople.stream()
-                .map(person -> modelMapper.map(person, ApiResponse.class))
-                .collect(Collectors.toList());
-
-        return responseList;
-    }
-
-    @Override
-    public ApiResponse getPersonByPhoneNumber(String phone_number) {
-        Optional<Person> optionalPerson = personRepository.findByPhoneNumber(phone_number);
-        if (optionalPerson.isEmpty()){
-            throw new PersonNotFoundException("Person not found");
         }
         return modelMapper.map(optionalPerson.get(), ApiResponse.class);
     }
