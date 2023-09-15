@@ -34,7 +34,12 @@ public class PersonServiceImpl implements PersonService{
 
         Person savedPerson = personRepository.save(newPerson);
 
-        return modelMapper.map(savedPerson, ApiResponse.class);
+        return ApiResponse
+                .builder()
+                .id(savedPerson.getId())
+                .message("User with id " + savedPerson.getId() + " successfully created")
+                .isSuccess(true)
+                .build();
     }
 
     @Override
@@ -43,7 +48,14 @@ public class PersonServiceImpl implements PersonService{
         if (optionalPerson.isEmpty()) {
             throw new PersonNotFoundException("Person with id " + id + "not found");
         }
-        return modelMapper.map(optionalPerson.get(), ApiResponse.class);
+        Person person = optionalPerson.get();
+        return ApiResponse
+                .builder()
+                .id(person.getId())
+                .message("User with id " + person.getId() + " successfully gotten")
+                .isSuccess(true)
+                .build();
+
     }
 
     @Override
@@ -59,17 +71,28 @@ public class PersonServiceImpl implements PersonService{
         modelMapper.map(updatePersonRequest, address);
         personRepository.save(person);
 
-        return modelMapper.map(person, ApiResponse.class);
+        return ApiResponse
+                .builder()
+                .id(person.getId())
+                .message("User with id " + person.getId() + " successfully created")
+                .isSuccess(true)
+                .build();
     }
 
     @Override
-    public String deletePersonById(Long id) {
+    public ApiResponse deletePersonById(Long id) {
         Optional<Person> optionalPerson = personRepository.findById(id);
         if (optionalPerson.isEmpty()){
             throw new PersonNotFoundException("Person with id " + id + " not found");
         }
-        personRepository.delete(optionalPerson.get());
-        return "success";
+        Person person = optionalPerson.get();
+        personRepository.delete(person);
+        return ApiResponse
+                .builder()
+                .message("User with id " + person.getId() + " successfully deleted")
+                .isSuccess(true)
+                .build();
+
     }
 
 }

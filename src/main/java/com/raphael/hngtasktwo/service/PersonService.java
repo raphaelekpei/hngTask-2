@@ -13,6 +13,6 @@ public interface PersonService {
     ApiResponse getPersonById(Long id);
     ApiResponse updatePerson(UpdatePersonRequest updatePersonRequest, Long id);
 
-    String deletePersonById(Long id);
+    ApiResponse deletePersonById(Long id);
 
 }

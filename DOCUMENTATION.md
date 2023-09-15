@@ -11,132 +11,25 @@ This documentation provides details about the API endpoints, standard request an
 3. Known Limitations and Assumptions
 4. Local Setup and Deployment Instructions
  
-### Endpoints and Request/Response Formats
+### Endpoints
 
-# Add Person:
-## POST /api
+POST /api
+GET /api/{id}
+PUT /api/{id}
+DELETE /api/{id}
 
-# Request Format:
+### 2. Sample API Usage
 
-{
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  }
-}
-
-# Response Format:
-
-{
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  }
-}
-
-# Get Person by ID:
-## GET /api/{id}
-
-# Request Format:
-
-{
-  "id": 1
-}
-
-# Response Format:
-
-{
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  },
-  "dateOfBirth": "1993-12-12",
-  "age": 29
-}
-
-
-# Update Person by ID:
-## PUT /api/{id}
-
-# Request Format:
-
-`{
-  "name": "Johnny Doe",
-  "email": "johnnydoe@example.com",
-  "phoneNumber": "+234 91-9283-6891",
-  "address": {
-    "houseNumber": 20,
-    "streetName": "Raymond Street",
-    "city": "Peter Road",
-    "state": "Lagos",
-    "country": "Nigeria"
-  },
-  "dateOfBirth": "1995-12-12"
-
-}
-
-# Response Format:
-
-{
-  "name": "Johnny Doe",
-  "email": "johnnydoe@example.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 20,
-    "streetName": "Raymond Street",
-    "city": "Peter Road",
-    "state": "Lagos",
-    "country": "Nigeria"
-}
-}
-
-
-# Delete Person by ID:
-## DELETE /api/{id}
-
-# Request Format:
-
-{
-  "id": 1
-}
-
-# Response Format:
-
-{
-"message": "success"
-}
-
-#### Sample API Usage
-
-### Adding a Person
+## Add Person
 
 # Request:
 
 POST /api
-Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
+  "name": "Ekpei Raphael",
+  "email": "ekpeiraphael020@gmail.com",
+  "phoneNumber": "+2349093837491",
   "address": {
     "houseNumber": 37,
     "streetName": "Ajasa Street",
@@ -149,75 +42,52 @@ Content-Type: application/json
 # Response:
 
 {
-  "name": "John Doe",
-  "email": "johndoe@gmail.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  }
+  "id": 1,
+  "message": "User with id 1 successfully created",
+  "isSuccess": "true",
 }
 
-### Retrieving a Person by ID
+## Retrieving a Person by ID
 
 # Request:
 GET /api/1
-Content-Type: application/json
 
 # Response:
 
 {
-  "name": "John Doe",
-  "email": "johndoe@example.com",
-  "phoneNumber": "+2349023437391",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  },
-
+  "id": 1,
+  "message": "User with id 1 successfully retrieved",
+  "isSuccess": "true",
 }
 
-### Updating a Person by ID
+
+### Update Person by ID
 
 # Request:
 UPDATE /api/1
 Content-Type: application/json
-
 {
-  "name": "Johnny Doe",
-  "email": "johnnydoe@gmail.com",
-  "phoneNumber": "+2349023437391",
+  "name": "Ekpei Raphael",
+  "email": "ekpeiraphael020@gmail.com",
+  "phoneNumber": "+2349093837491",
   "address": {
     "houseNumber": 37,
     "streetName": "Ajasa Street",
     "city": "Olodi-Apapa",
     "state": "Lagos",
     "country": "Nigeria"
-  }
+}
 }
 
 # Response:
 
 {
-  "name": "Johnny Doe",
-  "email": "johnnydoe@example.com",
-  "phoneNumber": "+234 90-9383-7491",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  }
+  "id": 1,
+  "message": "User with id 1 successfully updated",
+  "isSuccess": "true",
 }
 
-### Deleting a Person by ID
+### Delete Person by ID
 
 # Request:
 DELETE /api/1
@@ -226,8 +96,9 @@ Content-Type: application/json
 # Response:
 
 {
-  success
-
+  "id": 1,
+  "message": "User with id 1 successfully deleted",
+  "isSuccess": "true",
 }
 
 #### Known Limitations and Assumptions

@@ -37,9 +37,9 @@ public class PersonController {
     }
 
     @DeleteMapping("{user_id}")
-    public ResponseEntity<String> deletePersonById(@PathVariable Long user_id) {
-        String deleteMessage = personService.deletePersonById(user_id);
-        return ResponseEntity.ok(deleteMessage);
+    public ResponseEntity<ApiResponse> deletePersonById(@PathVariable Long user_id) {
+        ApiResponse apiResponse = personService.deletePersonById(user_id);
+        return ResponseEntity.ok(apiResponse);
     }
 
 }
