@@ -56,10 +56,18 @@ GET /api/1
 
 {
   "id": 1,
-  "message": "User with id 1 successfully retrieved",
-  "isSuccess": "true",
+  "name": "Ekpei Raphael",
+  "email": "ekpeiraphael020@gmail.com",
+  "phoneNumber": "+2349093837491",
+  "address": {
+    "id": "1",
+    "houseNumber": 37,
+    "streetName": "Ajasa Street",
+    "city": "Olodi-Apapa",
+    "state": "Lagos",
+    "country": "Nigeria"
+  }
 }
-
 
 ### Update Person by ID
 
@@ -96,9 +104,7 @@ Content-Type: application/json
 # Response:
 
 {
-  "id": 1,
-  "message": "User with id 1 successfully deleted",
-  "isSuccess": "true",
+  "message": "User with id 1 has been successfully deleted"
 }
 
 #### Known Limitations and Assumptions
