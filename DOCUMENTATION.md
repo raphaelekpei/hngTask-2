@@ -28,15 +28,6 @@ POST /api
 
 {
   "name": "Ekpei Raphael",
-  "email": "ekpeiraphael020@gmail.com",
-  "phoneNumber": "+2349093837491",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  }
 }
 
 # Response:
@@ -57,16 +48,7 @@ GET /api/1
 {
   "id": 1,
   "name": "Ekpei Raphael",
-  "email": "ekpeiraphael020@gmail.com",
-  "phoneNumber": "+2349093837491",
-  "address": {
-    "id": "1",
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-  }
+
 }
 
 ### Update Person by ID
@@ -76,15 +58,6 @@ UPDATE /api/1
 Content-Type: application/json
 {
   "name": "Ekpei Raphael",
-  "email": "ekpeiraphael020@gmail.com",
-  "phoneNumber": "+2349093837491",
-  "address": {
-    "houseNumber": 37,
-    "streetName": "Ajasa Street",
-    "city": "Olodi-Apapa",
-    "state": "Lagos",
-    "country": "Nigeria"
-}
 }
 
 # Response:

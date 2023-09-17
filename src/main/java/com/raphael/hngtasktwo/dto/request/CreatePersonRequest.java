@@ -18,39 +18,4 @@ public class CreatePersonRequest {
     @NotEmpty(message = "This field is required")
     private String name;
 
-    @NotNull(message = "This field is required")
-    @NotBlank(message = "This field is required")
-    @NotEmpty(message = "This field is required")
-    @Email(message = "This field must be a valid email address")
-    private String email;
-
-    @NotNull(message = "This field is required")
-    @NotBlank(message = "This field is required")
-    @NotEmpty(message = "This field is required")
-    @Pattern(regexp = "^(\\+234|0)[0-9]{10}$")
-    private String phoneNumber;
-
-    @NotNull(message = "This field is required")
-    private Integer houseNumber;
-
-    @NotNull(message = "This field is required")
-    @NotBlank(message = "This field is required")
-    @NotEmpty(message = "This field is required")
-    private String streetName;
-
-    @NotNull(message = "This field is required")
-    @NotBlank(message = "This field is required")
-    @NotEmpty(message = "This field is required")
-    private String city;
-
-    @NotNull(message = "This field is required")
-    @NotBlank(message = "This field is required")
-    @NotEmpty(message = "This field is required")
-    private String state;
-
-    @NotNull(message = "This field is required")
-    @NotBlank(message = "This field is required")
-    @NotEmpty(message = "This field is required")
-    private String country;
-
 }

@@ -1,12 +1,10 @@
 package com.raphael.hngtasktwo.service;
 
-import com.raphael.hngtasktwo.data.model.Address;
 import com.raphael.hngtasktwo.data.model.Person;
 import com.raphael.hngtasktwo.data.repository.PersonRepository;
 import com.raphael.hngtasktwo.dto.request.CreatePersonRequest;
 import com.raphael.hngtasktwo.dto.request.UpdatePersonRequest;
 import com.raphael.hngtasktwo.dto.response.ApiResponse;
-import com.raphael.hngtasktwo.exception.EmailAlreadyTakenException;
 import com.raphael.hngtasktwo.exception.PersonNotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +26,8 @@ public class PersonServiceImpl implements PersonService{
 
     @Override
     public ApiResponse addPerson(CreatePersonRequest createPersonRequest) {
-        Optional<Person> optionalPerson = personRepository.findByEmail(createPersonRequest.getEmail());
-        if (optionalPerson.isPresent()) {
-            throw new EmailAlreadyTakenException("email already in use");
-        }
-        Person newPerson = modelMapper.map(createPersonRequest, Person.class);
-        Address address = modelMapper.map(createPersonRequest, Address.class);
-        newPerson.setAddress(address);
-
-        Person savedPerson = personRepository.save(newPerson);
+        Person person = new Person(createPersonRequest.getName());
+        Person savedPerson = personRepository.save(person);
 
         return ApiResponse
                 .builder()
@@ -64,8 +55,6 @@ public class PersonServiceImpl implements PersonService{
 
         Person person = optionalPerson.get();
         modelMapper.map(updatePersonRequest, person);
-        Address address = person.getAddress();
-        modelMapper.map(updatePersonRequest, address);
         personRepository.save(person);
 
         return ApiResponse

@@ -16,16 +16,8 @@ public class Person {
     private Long id;
 
     private String name;
-    private String email;
-    private String phoneNumber;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Address address;
-
-    public Person(String name, String email, String phoneNumber) {
+    public Person(String name) {
         this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
     }
 
 }
